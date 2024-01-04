@@ -1,0 +1,169 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Login con Node JWT</title>
+        <link rel="shortcut icon" href="node.ico">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="css/main.css" />
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="index.ejs">NUEVOS CURSOS | 2023 <span>Ruta</span> </a></div>
+				<a href="#menu"><span>Menu</span></a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="#">Mi cuenta</a></li>
+					<li><a href="#">Inicio</a></li>
+					<li><a href="#">Cursos</a></li>
+					<li><a href="#">Planes</a></li>
+					<li><a href="logout">Salir</a></li>
+				</ul>
+			</nav>
+
+		<!-- Banner -->
+		
+			<section id="banner" class="bg-img" data-bg="img.jpg">
+				<div class="inner">
+					<header>
+						<h1>Bienvenidos:
+							<% if (user) { %>
+								<span class="badge bg-success"><%= user.name %></span>
+							<% } %>
+						</h1>
+					</header>
+				</div>
+				<a href="#one" class="more">Mas</a>
+			</section>
+
+		<!-- One -->
+			<section id="one" class="wrapper post bg-img" data-bg="img1.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>Preparate para todos tus retos <br>Cursos online para trabajar en tecnología</h2>
+							<p>¿Que quieres lograr?</p>
+						</header>
+						<div class="content">
+							<p>La comunidad de aprendizaje en línea donde desarrollas tus habilidades y potencias tu crecimiento profesional.</p>
+						</div>
+						<footer>
+							<a href="#two" class="button alt">  Acerca de</a>
+						</footer>
+					</article>
+				</div>
+				<a href="#two" class="more">Acerca de</a>
+			</section>
+
+		<!-- Two -->
+			<section id="two" class="wrapper post bg-img" data-bg="img1.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>Backend con Python</h2>
+							<p>¿Que es pyton?</p>
+						</header>
+						<div class="content">
+							<p>Python es el lenguaje de programación más popular para desarrollo backend.
+
+                                Está presente en las aplicaciones web más importantes de internet, como Google, Facebook, Netflix, Platzi, entre muchas más. Y tiene un gran ecosistema de herramientas a su alrededor para agilizar nuestro trabajo. Allí destacan Django, Flask y FastAPI para construir proyectos web.</p>
+						</div>
+						<footer>
+							<a href="generic.html" class="button alt">Acerca de</a>
+						</footer>
+					</article>
+				</div>
+				<a href="#three" class="more">Acerca de</a>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper post bg-img" data-bg="img1.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>Full Stack Developer con JavaScript</h2>
+							<p>Evoluciona tu carrera</p>
+						</header>
+						<div class="content">
+							<p> Aprende a construir aplicaciones y sitios web tanto backend como frontend, usando JavaScript, Node y React.</p>
+						</div>
+						<footer>
+							<a href="generic.html" class="button alt">Acerca de</a>
+						</footer>
+					</article>
+				</div>
+				<a href="#four" class="more">Acerca de</a>
+			</section>
+
+		<!-- Four -->
+			<section id="four" class="wrapper post bg-img" data-bg="img2.jpg">
+				<div class="inner">
+					<article class="box">
+						<header>
+							<h2>TE DAMOS LAS HERRAMIENTAS PARA CRECER</h2>
+							<p>Adquiere el conocimiento necesario para convertir tus ideas en nuevos proyectos.</p>
+						</header>
+						<div class="content">
+							<p>Comparte
+								Conecta con una comunidad de estudiantes y profesionales para potenciar tu aprendizaje.
+								Transforma
+								Genera impacto con grandes proyectos que cambien al mundo.</p>
+						</div>
+						<footer>
+							<a href="generic.html" class="button alt">Acerca de</a>
+						</footer>
+					</article>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+
+					<h2>Contactanos</h2>
+
+					<form action="#" method="post">
+
+						<div class="field half first">
+							<label for="name">Nombre</label>
+							<input name="name" id="name" type="text" placeholder="Nombre">
+						</div>
+						<div class="field half">
+							<label for="email">Correo electronico</label>
+							<input name="email" id="email" type="email" placeholder="Correo electronico">
+						</div>
+						<div class="field">
+							<label for="message">Mensaje</label>
+							<textarea name="message" id="message" rows="6" placeholder="Mensaje"></textarea>
+						</div>
+						<ul class="actions">
+							<li><input value="Enviar Mensaje" class="button alt" type="submit"></li>
+						</ul>
+					</form>
+
+					<ul class="icons">
+						<li><a href="#" class="icon round fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon round fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon round fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="js/jquery.min.js"></script>
+			<script src="js/jquery.scrolly.min.js"></script>
+			<script src="js/jquery.scrollex.min.js"></script>
+			<script src="js/skel.min.js"></script>
+			<script src="js/util.js"></script>
+			<script src="js/main.js"></script>
+
+	</body>
+</html>
