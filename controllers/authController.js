@@ -1,11 +1,12 @@
-const jwt = require('jsonwebtoken')
-const bcryptjs = require('bcryptjs')
-const conexion = require('../database/db')
-const {promisify} = require('util')
-const { error } = require('console')
+import jwt from 'jsonwebtoken';
+import bcryptjs from 'bcryptjs';
+import conexion from '../database/db.js';
+import { promisify } from 'util';
+import { error } from 'console';
 
 //procedimiento para la registracion
-exports.register = async(req, res)=>{
+//exports.register = async(req, res)=>{
+   export const register = async (req, res) => {
 
    try {
          const name = req.body.name
@@ -22,7 +23,9 @@ exports.register = async(req, res)=>{
    }
 }
 
-exports.login = async (req, res)=>{
+//exports.login = async (req, res)=>{
+   //export const login = async (req, res) => {
+      export async function login(req, res) {
    try {
       const user = req.body.user
       const pass = req.body.pass
@@ -80,8 +83,11 @@ exports.login = async (req, res)=>{
       console.log(error)
    }
 }
+      
 
-exports.isAutenticated = async (req, res, next)=>{
+//exports.isAutenticated = async (req, res, next)=>{
+   //export const isAutenticated = async (req, res, next) => {
+      export async function isAutenticated(req, res, next) {
    if (req.cookies.jwt) {
       try {
          const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
@@ -101,7 +107,9 @@ exports.isAutenticated = async (req, res, next)=>{
    }
 }
 
-exports.logout = (req, res)=> {
+//exports.logout = (req, res)=> {
+   //export const logout = (req, res) => {
+      export function logout(req, res) {
    res.clearCookie('jwt')
    return res.redirect('/')
 }

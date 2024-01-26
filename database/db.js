@@ -1,9 +1,19 @@
-const mysql = require('mysql');
+import mysql from 'mysql';
+import { 
+    DB_HOST,
+    DB_USER,
+    DB_NAME,
+    DB_PASSWORD,
+    DB_PORT } from '../config.js'
+
+
+
 const connection =  mysql.createConnection({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_DATABASE
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_NAME,
+    port: DB_PORT
 });
 
 connection.connect((error)=> {
@@ -14,4 +24,4 @@ connection.connect((error)=> {
     console.log('¡Conectado a la base de datos!');
 });
 
-module.exports = connection;
+export { connection as default };

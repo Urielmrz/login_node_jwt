@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router()
-
-const authController = require('../controllers/authController')
+//import authController from '../controllers/authController.js';
+//import { register, login, isAutenticated, logout } from '../controllers/authController.js';
+import * as authController from '../controllers/authController.js';
 
 
 //router para las vistas
@@ -20,4 +21,4 @@ router.post('/register', authController.register)
 router.post('/login', authController.login)
 router.get('/logout', authController.logout)
 
-module.exports = router
+export default router;

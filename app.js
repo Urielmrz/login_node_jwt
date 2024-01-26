@@ -1,9 +1,11 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cookieParser = require('cookie-parser');
-require('cookie-parser');
+import express from 'express';
+import dotenv from 'dotenv';
+import cookieParser from 'cookie-parser';
+import { PORT } from './config.js';
+import router from './routes/router.js';
 
 const app = express();
+
 
 //setear el motor de plantillas
 app.set('view engine', 'ejs');
@@ -22,7 +24,7 @@ dotenv.config({path: './env/.env'});
 app.use(cookieParser());
 
 //llamar al router
-app.use('/', require('./routes/router.js'));
+app.use('/', router);
 
 //Para eliminar el cache y no poder volver con el boton back luego ed cerrar sesion
 app.use(function(req, res, next){
@@ -31,6 +33,6 @@ app.use(function(req, res, next){
     next();
 });
 
-app.listen(3000, (req, res) => {
-    console.log('Server UP Running in http://localhost:3000');
+app.listen(PORT, (req, res) => {
+    console.log('Server UP Running', PORT);
 })
