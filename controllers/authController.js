@@ -42,7 +42,14 @@ import { error } from 'console';
          })
       }else{
          conexion.query('SELECT * FROM users WHERE user = ?', [user], async(error, results)=>{
+            //console.log("Query:", 'SELECT * FROM users WHERE user = ?', [user]);
+            //console.log("Query:", 'SELECT * FROM users WHERE pass = ?', [pass]);
+            //console.log("Results:", results);
+
+
             if( results.length == 0 || ! (await bcryptjs.compare(pass, results[0].pass))){
+              // if (!results || results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))) 
+
                res.render('login', {
                   alert:true, 
                   alertTitle: "Advertencia",
