@@ -14,7 +14,7 @@ import { error } from 'console';
          const pass = req.body.pass
          let passhahs = await bcryptjs.hash(pass,8)
          //console.log(name +"-"+ user +"-"+ pass)
-         conexion.query('INSERT INTO users SET ?', {user:user, name:name, pass:passhahs}, (error, results)=>{
+         conexion.query('INSERT INTO user SET ?', {user:user, name:name, pass:passhahs}, (error, results)=>{
             if(error){console.log(error)}
             res.redirect('/')
          })
@@ -41,14 +41,15 @@ import { error } from 'console';
             ruta: 'login'
          })
       }else{
-         conexion.query('SELECT * FROM users WHERE user = ?', [user], async(error, results)=>{
+         conexion.query('SELECT * FROM user WHERE user = ?', [user], async(error, results)=>{
             //console.log("Query:", 'SELECT * FROM users WHERE user = ?', [user]);
             //console.log("Query:", 'SELECT * FROM users WHERE pass = ?', [pass]);
             //console.log("Results:", results);
 
 
-            if( results.length == 0 || ! (await bcryptjs.compare(pass, results[0].pass))){
-              // if (!results || results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))) 
+            //if( results.length == 0 || ! (await bcryptjs.compare(pass, results[0].pass))){
+               if (!results || results.length == 0 || !(await bcryptjs.compare(pass, results[0].pass))){
+                  
 
                res.render('login', {
                   alert:true, 
@@ -98,7 +99,7 @@ import { error } from 'console';
    if (req.cookies.jwt) {
       try {
          const decodificada = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRETO)
-         conexion.query('SELECT * FROM users WHERE id = ?' [decodificada.id], (error, results)=>{
+         conexion.query('SELECT * FROM user WHERE id = ?' [decodificada.id], (error, results)=>{
             if(!results){return next()}
             req.user = results[0]
             return next()
