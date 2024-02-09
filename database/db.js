@@ -24,7 +24,7 @@ connection.connect((error)=> {
     console.log('¡Conectado a la base de datos!');
 });
 
-connection.query("CREATE DATABASE login_node_jwt", function (err, result) {
+connection.query("CREATE DATABASE _node_login_jwt", function (err, result) {
     if (err) throw err;
     console.log("Database created");
   });
